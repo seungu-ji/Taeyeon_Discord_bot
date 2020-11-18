@@ -26,6 +26,10 @@ async def about_taeyeon(ctx):
     embed.add_field(name=f"태연님의 신체 스펙은요?",value=f"160cm, 45kg, 245mm, A형",inline=False)
     await ctx.send(embed=embed)
 
+@bot.command()
+async def youtube(ctx):
+    await ctx.send("https://www.youtube.com/channel/UC5z2fxN6rs69cSyXur6X6Mg")
+
 @bot.event
 async def on_member_join(member):
     await member.send("{}님 어서오세요.".format(member))
