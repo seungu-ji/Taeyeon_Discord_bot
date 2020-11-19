@@ -3,6 +3,7 @@ import discord
 from discord.ext import commands
 import os
 
+
 token_path = os.path.dirname(os.path.abspath(__file__))+"/token.txt"
 t = open(token_path,"r",encoding="utf-8")
 token = t.read().split()[0]
@@ -30,9 +31,15 @@ async def about_taeyeon(ctx):
 async def youtube(ctx):
     await ctx.send("https://www.youtube.com/channel/UC5z2fxN6rs69cSyXur6X6Mg")
 
+@bot.command()
+async def img(ctx):
+    file = discord.File("./img/태연50.jpg",spoiler=False)
+    await ctx.channel.send(file=file)
+    
 @bot.event
 async def on_member_join(member):
     await member.send("{}님 어서오세요.".format(member))
+
 
 @bot.event
 async def on_message(message):
@@ -43,5 +50,6 @@ async def on_message(message):
         await message.channel.send("말 이쁘게 하랬지!")
         await message.delete() # 욕설 문장 삭제
     await bot.process_commands(message) # 메시지 중 명령어가 있을 경우 처리해주는 코드 ex)!ㅅㅂ
+
 
 bot.run(token)
