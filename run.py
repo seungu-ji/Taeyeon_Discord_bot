@@ -3,6 +3,10 @@ import discord
 from discord.ext import commands
 import os
 
+# 랜덤 태연 사진을 위한 모듈
+from urllib.parse import quote_plus
+import random
+
 
 token_path = os.path.dirname(os.path.abspath(__file__))+"/token.txt"
 t = open(token_path,"r",encoding="utf-8")
@@ -33,7 +37,8 @@ async def youtube(ctx):
 
 @bot.command()
 async def img(ctx):
-    file = discord.File("./img/태연50.jpg",spoiler=False)
+    img_num = random.randint(1,134)
+    file = discord.File("./img/태연{}.jpg".format(img_num),spoiler=False)
     await ctx.channel.send(file=file)
     
 @bot.event
