@@ -37,7 +37,7 @@ async def youtube(ctx):
 
 @bot.command()
 async def img(ctx):
-    img_num = random.randint(1,134)
+    img_num = random.randint(1,516)
     file = discord.File("./img/태연{}.jpg".format(img_num),spoiler=False)
     await ctx.channel.send(file=file)
     
